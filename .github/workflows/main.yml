@@ -1,0 +1,30 @@
+on:
+  schedule:
+    - cron: '0 8-23 * * *'
+
+  push:
+    branches:
+      - master
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@master
+
+      - uses: covid19cuba/covid19cuba-action@master
+        with:
+          BotToken: ${{ secrets.BOT_TOKEN }}
+          GroupId: ${{ secrets.GROUP_ID }}
+
+      - name: deploy
+        run: |
+          git config --global user.name 'leynier'
+          git config --global user.email 'leynier41@gmail.com'
+          git checkout -b gh-pages
+          git add .
+          git commit -am "Deploy apis"
+          git push -f --set-upstream origin gh-pages
