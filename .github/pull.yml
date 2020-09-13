@@ -1,5 +1,0 @@
-version: "1"
-rules:
-  - base: default
-    upstream: covid19cubadata:master
-    mergeMethod: merge
