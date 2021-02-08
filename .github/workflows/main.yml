@@ -29,3 +29,16 @@ jobs:
           git add .
           git commit -am "Deploy apis"
           git push -f --set-upstream origin gh-pages
+
+      - name: ssh deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd projects/covid19cubadata.github.io
+            git checkout gh-pages
+            git fetch --all
+            git reset --hard origin/gh-pages
