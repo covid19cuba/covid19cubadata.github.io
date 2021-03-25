@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd projects/covid19cubadata.github.io
+            cd storage/projects/covid19cubadata.github.io
             git checkout gh-pages
             git fetch --all
             git reset --hard origin/gh-pages
