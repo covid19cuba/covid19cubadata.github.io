@@ -1,0 +1,1 @@
+{"url":"http://autopesquisa.sld.cu/","javascript":"document.querySelector('app-root').removeChild(document.querySelector('mat-toolbar'));","contains":"autopesquisa.sld.cu"}
